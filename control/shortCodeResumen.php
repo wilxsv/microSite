@@ -48,7 +48,7 @@
    <td>Homicidios culposos</td>
    <td>Hurto y robos de vehículos con mercadería</td>
   </tr>
-  <tr><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+  <tr><td>0</td><td>494</td><td>0</td><td>0</td></tr>
   <tr>
    <td>Hurtos</td>
    <td>Hurtos de vehículos</td>
