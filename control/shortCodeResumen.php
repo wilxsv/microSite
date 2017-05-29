@@ -48,7 +48,7 @@
    <td><a href="http://transparencia.wvides.cf/?p=274">Homicidios</a></td>
    <td>Homicidios culposos</td>
   </tr>
-  <tr><td>0</td><td>494</td><td>0</td><td>0</td></tr>
+  <tr><td>0</td><td>0</td><td>494</td><td>0</td></tr>
   <tr>
    <td>Hurto y robos de vehículos con mercadería</td>
    <td>Hurtos</td>
