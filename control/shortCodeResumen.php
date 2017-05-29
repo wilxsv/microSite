@@ -44,32 +44,32 @@
   <tr><td>0</td><td>0</td><td>0</td><td>0</td></tr>
   <tr>
    <td>Detenidos</td>
+   <td>Extorsión</td>
    <td><a href="http://transparencia.wvides.cf/?p=274">Homicidios</a></td>
    <td>Homicidios culposos</td>
-   <td>Hurto y robos de vehículos con mercadería</td>
   </tr>
   <tr><td>0</td><td>494</td><td>0</td><td>0</td></tr>
   <tr>
+   <td>Hurto y robos de vehículos con mercadería</td>
    <td>Hurtos</td>
    <td>Hurtos de vehículos</td>
    <td>Incautaciones de drogas</td>
-   <td>Intercambios de disparos</td>
   </tr>
   <tr><td>0</td><td>0</td><td>0</td><td>0</td></tr>
   <tr>
+   <td>Intercambios de disparos</td>
    <td>Lesiones</td>
    <td>Lesiones culposas</td>
    <td>Robos</td>
-   <td>Robos de vehículos</td>
   </tr>
   <tr><td>0</td><td>0</td><td>0</td><td>0</td></tr>
   <tr>
+   <td>Robos de vehículos</td>
    <td>Secuestro</td>
    <td></td>
    <td></td>
-   <td></td>
   </tr>
-  <tr><td>0</td><td></td><td></td><td></td></tr>
+  <tr><td>0</td><td>0</td><td></td><td></td></tr>
  </tbody>
 </table>
 </h4>
