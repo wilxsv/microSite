@@ -34,7 +34,7 @@
  $upload_dir = wp_upload_dir();
  $url = $upload_dir['baseurl'];
 ?>
-<div class="row">
+<div class="row" style="text-align:center;">
 <h4>
 <table>
  <tbody>
