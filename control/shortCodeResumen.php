@@ -31,41 +31,44 @@
 	$q=$wpdb->get_results( $query );*/
 	
  echo $header;
+ $upload_dir = wp_upload_dir();
+ $url = $upload_dir['baseurl'];
 ?>
+<div class="row">
 <h4>
 <table>
  <tbody>
   <tr>
-   <td>Ataques a personal policial y familiares</td>
-   <td>Ataques a unidades policiales</td>
-   <td>Daños (tránsito)</td>
-   <td>Delitos sexuales</td>
+   <td><img src="<?php echo $url; ?>/img/bonotes-1.png" alt="Ataques a personal policial y familiares"></td>
+   <td><img src="<?php echo $url; ?>/img/bonotes-2.png" alt="Ataques a unidades policiales"></td>
+   <td><img src="<?php echo $url; ?>/img/bonotes-3.png" alt="Daños (tránsito)"></td>
+   <td><img src="<?php echo $url; ?>/img/bonotes-4.png" alt="Delitos sexuales"></td>
   </tr>
   <tr><td>0</td><td>0</td><td>0</td><td>0</td></tr>
   <tr>
-   <td>Detenidos</td>
-   <td>Extorsión</td>
-   <td><a href="http://transparencia.wvides.cf/?p=274">Homicidios</a></td>
-   <td>Homicidios culposos</td>
+   <td><img src="<?php echo $url; ?>/img/bonotes-5.png" alt="Detenidos"></td>
+   <td><img src="<?php echo $url; ?>/img/bonotes-6.png" alt="Extorsión" /></td>
+   <td><a href="http://transparencia.wvides.cf/?p=274"><img src="<?php echo $url; ?>/img/bonotes-7.png" alt="Homicidios" /></a></td>
+   <td><img src="<?php echo $url; ?>/img/bonotes-8.png" alt="Homicidios culposos"></td>
   </tr>
   <tr><td>0</td><td>0</td><td>494</td><td>0</td></tr>
   <tr>
-   <td>Hurto y robos de vehículos con mercadería</td>
-   <td>Hurtos</td>
-   <td>Hurtos de vehículos</td>
-   <td>Incautaciones de drogas</td>
+   <td><img src="<?php echo $url; ?>/img/bonotes-9.png" alt="Hurto y robos de vehículos con mercadería"></td>
+   <td><img src="<?php echo $url; ?>/img/bonotes-10.png" alt="Hurtos"></td>
+   <td><img src="<?php echo $url; ?>/img/bonotes-11.png" alt="Hurtos de vehículos"></td>
+   <td><img src="<?php echo $url; ?>/img/bonotes-12.png" alt="Incautaciones de drogas"></td>
   </tr>
   <tr><td>0</td><td>0</td><td>0</td><td>0</td></tr>
   <tr>
-   <td>Intercambios de disparos</td>
-   <td>Lesiones</td>
-   <td>Lesiones culposas</td>
-   <td>Robos</td>
+   <td><img src="<?php echo $url; ?>/img/bonotes-13.png" alt="Intercambios de disparos"></td>
+   <td><img src="<?php echo $url; ?>/img/bonotes-14.png" alt="Lesiones"></td>
+   <td><img src="<?php echo $url; ?>/img/bonotes-15.png" alt="Lesiones culposas"></td>
+   <td><img src="<?php echo $url; ?>/img/bonotes-16.png" alt="Robos"></td>
   </tr>
   <tr><td>0</td><td>0</td><td>0</td><td>0</td></tr>
   <tr>
-   <td>Robos de vehículos</td>
-   <td>Secuestro</td>
+   <td><img src="<?php echo $url; ?>/img/bonotes-17.png" alt="Robos de vehículos"></td>
+   <td><img src="<?php echo $url; ?>/img/bonotes-18.png" alt="Secuestro"></td>
    <td></td>
    <td></td>
   </tr>
@@ -73,3 +76,4 @@
  </tbody>
 </table>
 </h4>
+</div>
