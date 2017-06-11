@@ -6,7 +6,7 @@
  $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
  $mensaje_default = "Delitos contabilizados hasta el mes de ";
  
- $datos_atts = shortcode_atts( array('anyo' => date("Y"), 'mes' => date("m"), 'orden' => 'ASC', 'titulo' => 6, 'maxdiv' => "400px"), $atts );
+ $datos_atts = shortcode_atts( array('anyo' => date("Y"), 'mes' => date("m"), 'orden' => 'ASC', 'titulo' => 6, 'maxdiv' => "400px", 'sexo' => "MUJER"), $atts );
  $genera = TRUE;
  if (strlen($delito) < 5) $genera = TRUE ;
  
