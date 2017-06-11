@@ -11,9 +11,9 @@ add_shortcode('datospnctotalanyo', 'verTotalesAnyo_shortcode' );
 add_shortcode('datosPNCTotalAreaAnyo', 'verTotalesDelitoAreaAnyo_shortcode' );
 add_shortcode('datosPNCTotalArmaAnyo', 'verTotalesDelitoArmaAnyo_shortcode' );
 add_shortcode('datosPNCTotalMesAnyo', 'verTotalesDelitoMesAnyo_shortcode' );
-add_shortcode('datosPNCTotalSexoAnyo', 'verTotalesDelitoSexoAnyo_shortcode' );/*
-add_shortcode('datospnctotalareaanyo', 'verTotalesDelitoLocalidadAnyo_shortcode' );
-*/
+add_shortcode('datosPNCTotalSexoAnyo', 'verTotalesDelitoSexoAnyo_shortcode' );
+add_shortcode('datospnctotalLocalidadAnyo', 'verTotalesDelitoLocalidadAnyo_shortcode' );
+
 function createDB(){
 	include('load.php');
 }
