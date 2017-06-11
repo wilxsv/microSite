@@ -8,7 +8,13 @@ Version: 0.6
 register_activation_hook( __FILE__, 'createDB' );
 add_action('admin_menu', 'setup_menu');
 add_shortcode('datospnctotalanyo', 'verTotalesAnyo_shortcode' );
-
+add_shortcode('datosPNCTotalAreaAnyo', 'verTotalesDelitoAreaAnyo_shortcode' );
+add_shortcode('datosPNCTotalArmaAnyo', 'verTotalesDelitoArmaAnyo_shortcode' );
+add_shortcode('datosPNCTotalMesAnyo', 'verTotalesDelitoMesAnyo_shortcode' );/*
+add_shortcode('datospnctotalareaanyo', 'verTotalesDelitoHombreAnyo_shortcode' );
+add_shortcode('datospnctotalareaanyo', 'verTotalesDelitoLocalidadAnyo_shortcode' );
+add_shortcode('datospnctotalareaanyo', 'verTotalesDelitoMujerAnyo_shortcode' );
+*/
 function createDB(){
 	include('load.php');
 }
@@ -27,13 +33,26 @@ $lateralView = new LateralView();
 /**********************************************************************
  *  Shortcode
  * *******************************************************************/
-function mostrarMapaHerramientas_shortcode() {
-	include WP_PLUGIN_DIR."/estadistica/view/forms/territorio.php";
-}
-function verHerramienta_shortcode() {
-	include WP_PLUGIN_DIR."/estadistica/view/verHerramienta.php";
-}
+
 function verTotalesAnyo_shortcode($atts, $mensaje = null) {
-	include WP_PLUGIN_DIR."/estadistica/control/shortCodeResumen.php";
+	include WP_PLUGIN_DIR."/estadistica/shortCode/Resumen.php";
+}
+function verTotalesDelitoAreaAnyo_shortcode($atts, $delito = null) {
+	include WP_PLUGIN_DIR."/estadistica/shortCode/DelitoArea.php";
+}
+function verTotalesDelitoArmaAnyo_shortcode($atts, $delito = null) {
+	include WP_PLUGIN_DIR."/estadistica/shortCode/DelitoArma.php";
+}
+function verTotalesDelitoHombreAnyo_shortcode($atts, $delito = null) {
+	include WP_PLUGIN_DIR."/estadistica/shortCode/DelitoHombre.php";
+}
+function verTotalesDelitoLocalidadAnyo_shortcode($atts, $delito = null) {
+	include WP_PLUGIN_DIR."/estadistica/shortCode/DelitoLocalidad.php";
+}
+function verTotalesDelitoMesAnyo_shortcode($atts, $delito = null) {
+	include WP_PLUGIN_DIR."/estadistica/shortCode/DelitoMes.php";
+}
+function verTotalesDelitoMujerAnyo_shortcode($atts, $delito = null) {
+	include WP_PLUGIN_DIR."/estadistica/shortCode/DelitoMujer.php";
 }
 ?>
