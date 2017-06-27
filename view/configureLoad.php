@@ -7,20 +7,48 @@ if(isset($_POST['importSubmit'])){
     $csvMimes = array('text/x-comma-separated-values', 'text/comma-separated-values', 'application/octet-stream', 'application/vnd.ms-excel', 'application/x-csv', 'text/x-csv', 'text/csv', 'application/csv', 'application/excel', 'application/vnd.msexcel', 'text/plain');
 	if(!empty($_FILES['file']['name']) && in_array($_FILES['file']['type'],$csvMimes)){
 		if(is_uploaded_file($_FILES['file']['tmp_name'])){
+			$csvFile = fopen($_FILES['file']['tmp_name'], 'r');
+            fgetcsv($csvFile);
 			switch($_FILES['file']['name']){
 				case 'accidentes.csv':
+					while(($line = fgetcsv($csvFile)) !== FALSE){
+						$sql = "INSERT INTO accidentes (cuenta, departamento, municipio, anyo, mes, dia, hora, rangohora, tipoaccidente, tipovehiculo, danyos) VALUES ($line[0], '$line[1]', '$line[2]', $line[3], '$line[4]', '$line[5]', '$line[6]', '$line[7]', '$line[8]', '$line[9]', '$line[10]')";
+						$wpdb->query($sql);
+					}
+					$status = 'succ';
 					break;
 				case 'delitos.csv':
+					while(($line = fgetcsv($csvFile)) !== FALSE){
+						$sql = "INSERT INTO delitos (cuenta, departamento, municipio, anyo, mes, dia, hora, rangohora, arma, delito, area) VALUES ($line[0], '$line[1]', '$line[2]', $line[3], '$line[4]', '$line[5]', '$line[6]', '$line[7]', '$line[8]', '$line[9]', '$line[10]')";
+						$wpdb->query($sql);
+					}
+					$status = 'succ';
 					break;
 				case 'delitossexuales.csv':
+					while(($line = fgetcsv($csvFile)) !== FALSE){
+						$sql = "INSERT INTO delitossexuales (cuenta, departamento, municipio, anyo, mes, dia, hora, rangohora, arma, delito, area) VALUES ($line[0], '$line[1]', '$line[2]', $line[3], '$line[4]', '$line[5]', '$line[6]', '$line[7]', '$line[8]', '$line[9]', '$line[10]')";
+						$wpdb->query($sql);
+					}
+					$status = 'succ';
 					break;
 				case 'detenidos.csv':
+					while(($line = fgetcsv($csvFile)) !== FALSE){
+						$sql = "INSERT INTO detenidos (cuenta, departamento, municipio, anyo, mes, dia, hora, rangohora, sexo, edad, grupoedad, delito, estructuracriminal, tipodetencion) VALUES ($line[0], '$line[1]', '$line[2]', $line[3], '$line[4]', '$line[5]', '$line[6]', '$line[7]', '$line[8]', $line[9], '$line[10]', '$line[11]', '$line[12]', '$line[13]')";
+						$wpdb->query($sql);
+					}
+					$status = 'succ';
 					break;
 				case 'victimas.csv':
+					while(($line = fgetcsv($csvFile)) !== FALSE){
+						$sql = "INSERT INTO victimas (cuenta, departamento, municipio, anyo, mes, dia, hora, rangohora, tipoarma, sexo, edad, grupoedad, delito, pertenecepandilla, relacionvictimavictimario, area) VALUES ($line[0], '$line[1]', '$line[2]', $line[3], '$line[4]', '$line[5]', '$line[6]', '$line[7]', '$line[8]', '$line[9]', $line[10], '$line[11]', '$line[12]', '$line[13]', '$line[14]', '$line[15]')";
+						$wpdb->query($sql);
+					}
+					$status = 'succ';
 					break;
-				default
+				default:
 					$status = 'err';
 			}
+			fclose($csvFile);
 		}
 		else
 		{
@@ -106,18 +134,3 @@ if(!empty($status)){
         </div>
     </div>
 </div>
-<?php
-function get_delitos ( $item ){
-	$datos = '<tr><td colspan="7">Sin registros aun para '.$item.'.....</td></tr>';
-	if ($item == 'delitos'){
-		  
-		  /*foreach ($hechos as $key => $object) { 
-					echo "<tr><td>Imperium</td><td>$object->departamento</td><td>$object->municipio</td><td>$object->delito</td><td>$object->sexo</td><td>$object->fecha</td></tr>";//$object->registro_hecho;
-				} */
-	} else {
-		
-	}
-	return $datos;
-}
-?>
-			 
