@@ -5,7 +5,7 @@
  $genera = TRUE;
  $div = "meses";
  if (strlen($delito) < 5) $genera = TRUE ;
- $queryMes = "SELECT mes, COUNT(*) as total FROM victimas WHERE delito = '".$delito."' AND anyo = '".$datos_atts['anyo']."' GROUP BY mes ORDER BY mes";
+ $queryMes = "SELECT mes, COUNT(*) as total FROM delitos WHERE delito = '".$delito."' AND anyo = '".$datos_atts['anyo']."' GROUP BY mes ORDER BY mes";
  
  $qSerie=$wpdb->get_results( $queryMes );
 

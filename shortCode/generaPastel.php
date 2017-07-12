@@ -14,7 +14,7 @@
 	   tooltip : { trigger: 'item', formatter: "{a} <br/>{b} : {c} ({d}%)" },
 	   toolbox: {
         show : true, orient: 'vertical', x: 'right', y: 'center',
-        feature : { mark : {show: true}, dataView : {show: true, readOnly: false, title : 'Ver datos'}, magicType : {show: true, type: ['pie', 'funnel']}, restore : {show: true, title : 'Reiniciar'}, saveAsImage : {show: true, title : 'Guardar como imagen'} }
+        feature : { mark : {show: true}, dataView : {show: true, readOnly: false, title : 'Ver datos'}, restore : {show: true, title : 'Reiniciar'}, saveAsImage : {show: true, title : 'Guardar como imagen'} }
        },
        calculable : true,
 	   /*Agregado dinamicamente*/

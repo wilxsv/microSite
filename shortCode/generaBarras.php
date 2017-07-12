@@ -14,7 +14,7 @@
 	   tooltip : { trigger: 'axis', axisPointer : { type : 'shadow' } },
 	   toolbox: {
         show : true, orient: 'vertical', x: 'right', y: 'center',
-        feature : { mark : {show: true}, dataView : {show: true, readOnly: false, title : 'Ver datos'}, magicType : {show: true, type: ['line', 'bar', 'stack', 'tiled']}, restore : {show: true, title : 'Reiniciar'}, saveAsImage : {show: true, title : 'Guardar como imagen'} }
+        feature : { mark : {show: true}, dataView : {show: true, readOnly: false, title : 'Ver datos'}, magicType : {show: true, type: []}, restore : {show: true, title : 'Reiniciar'}, saveAsImage : {show: true, title : 'Guardar como imagen'} }
        },
        calculable : true,
 	   yAxis : [ { type : 'value' } ],

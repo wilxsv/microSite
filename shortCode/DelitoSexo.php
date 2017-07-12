@@ -5,7 +5,7 @@
  $genera = TRUE;
  $div = $datos_atts['sexo'];
  if (strlen($delito) < 5) $genera = TRUE ;
- $queryArma = "SELECT tipoarma, COUNT(*) as total FROM victimas WHERE delito = '".$delito."' AND anyo = '".$datos_atts['anyo']."' AND sexo = '".$datos_atts['sexo']."' GROUP BY tipoarma ORDER BY tipoarma";
+ $queryArma = "SELECT tipoarma, COUNT(*) as total FROM delitos WHERE delito = '".$delito."' AND anyo = '".$datos_atts['anyo']."' AND sexo = '".$datos_atts['sexo']."' GROUP BY tipoarma ORDER BY tipoarma";
  
  $qArma=$wpdb->get_results( $queryArma );
  
