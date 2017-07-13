@@ -10,19 +10,31 @@
   function (ec) {
    var myChart = ec.init(document.getElementById('<?php echo $div; ?>')); 
    var option = {
-	   title : { text: 'Delito: <?php echo $delito; ?>', subtext: 'Conteo hasta <?php echo $meses[date($datos_atts['mes'])-1]; ?>' },
-	   tooltip : { trigger: 'axis', axisPointer : { type : 'shadow' } },
-	   toolbox: {
-        show : true, orient: 'vertical', x: 'right', y: 'center',
-        feature : { mark : {show: true}, dataView : {show: true, readOnly: false, title : 'Ver datos'}, magicType : {show: true, type: []}, restore : {show: true, title : 'Reiniciar'}, saveAsImage : {show: true, title : 'Guardar como imagen'} }
-       },
-       calculable : true,
-	   yAxis : [ { type : 'value' } ],
-	   /*Agregado dinamicamente*/
-	   legend: { data:[<?php echo $categoria; ?>] },
-	   xAxis : [ { type : 'category', data : [<?php echo $labels; ?>] } ],
-	   series : [<?php echo $series; ?>]
-   };
+	   title : { text: 'Delito: <?php echo $delito; ?> Por Area', subtext: 'Conteo hasta <?php echo $meses[date($datos_atts['mes'])-1]; ?>' },
+    tooltip : {
+        trigger: 'axis'
+    },
+    toolbox: {
+        show : false,
+        feature : {
+            dataView : {show: false, readOnly: false},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : true,
+    xAxis : [ { type : 'category', data : [<?php echo $categoria; ?>] } ],
+    yAxis : [ { type : 'value' } ],
+    series : [
+        {
+            name:'Area',
+            type:'bar',
+            data:[<?php echo $categoriaS; ?>]
+        }
+    ]
+};
   myChart.setOption(option);
- });
+}                   
+                    
+ );
 </script>

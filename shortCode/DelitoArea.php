@@ -5,10 +5,10 @@
  $genera = TRUE;
  $div = "area";
  if (strlen($delito) < 5) $genera = TRUE ;
- $queryTotal = "SELECT sexo, area, COUNT(*) as total FROM victimas WHERE delito = '".$delito."' AND anyo = '".$datos_atts['anyo']."' GROUP BY sexo, area ORDER BY sexo, area";
+ $queryTotal = "SELECT area, COUNT(*) as total FROM delitos WHERE delito = '".$delito."' AND anyo = '".$datos_atts['anyo']."' GROUP BY area ORDER BY area";
  $queryX = "SELECT area FROM victimas WHERE delito = '".$delito."' AND anyo = '".$datos_atts['anyo']."' GROUP BY area ORDER BY area";
- $queryCategoria = "SELECT sexo FROM victimas WHERE delito = '".$delito."' AND anyo = '".$datos_atts['anyo']."' GROUP BY sexo ORDER BY sexo";
- $queryArma = "SELECT tipoarma, COUNT(*) as total FROM victimas WHERE delito = '".$delito."' AND anyo = '".$datos_atts['anyo']."' GROUP BY tipoarma ORDER BY tipoarma";
+ $queryCategoria = "SELECT area FROM delitos WHERE delito = '".$delito."' AND anyo = '".$datos_atts['anyo']."' GROUP BY area ORDER BY area";
+ $queryArma = "SELECT arma, COUNT(*) as total FROM delitos WHERE delito = '".$delito."' AND anyo = '".$datos_atts['anyo']."' GROUP BY arma ORDER BY arma";
  
  $qSerie=$wpdb->get_results( $queryTotal );
  $qXLabel=$wpdb->get_results( $queryX );
@@ -17,22 +17,24 @@
  
  $series = '';
  $seriesP = '';
- foreach ($qCategoria as $l) {
-	 $categoria.= "'$l->sexo',";
+ $categoria = '';
+ foreach ($qSerie as $l) {
+	 $categoria.= "'$l->area',";
+	 $categoriaS.= "$l->total,";
  }
+ 
  foreach ($qXLabel as $l) {
 	 $labels.= "'$l->area',";
  }
  
  foreach ($qCategoria as $l) {
-  $series.= "{ name:'$l->sexo', type:'bar', stack: '总量', itemStyle : { normal: {label : {show: true, position: 'inside'}}}, data:[";
+  $series.= "{ name:'$l->area', type:'bar', data:[";
   foreach ($qSerie as $d) {
-   if ($l->sexo == $d->sexo)
-    $series.= "$d->total,";
+   $series.= "$d->total,";
   }
   $series.= "]},"; 
  }
-
+ 
  if($genera){
   include WP_PLUGIN_DIR."/estadistica/shortCode/generaBarras.php";
  }
