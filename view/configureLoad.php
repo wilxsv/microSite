@@ -33,14 +33,14 @@ if(isset($_POST['importSubmit'])){
 					break;
 				case 'detenidos.csv':
 					while(($line = fgetcsv($csvFile)) !== FALSE){
-						$sql = "INSERT INTO detenidos (cuenta, departamento, municipio, anyo, mes, mes_num, hora, rangohora, grupo_delito, delito, estructuracriminal, tipodetencion, sexo, edad, grupoedad) VALUES ($line[0], '$line[1]', '$line[2]', $line[3], '$line[4]', $line[5], '$line[6]', '$line[7]', '$line[8]', '$line[9]', '$line[10]', '$line[11]', '$line[12]', $line[13], '$line[14]')";
+						$sql = "INSERT INTO detenidos (cuenta, departamento, municipio, anyo, mes, mes_num, hora, rangohora, grupo_delito, delito, estructuracriminal, tipodetencion, sexo, edad, grupoedad) VALUES ($line[0], '$line[1]', '$line[2]', $line[3], '$line[4]', $line[5], '$line[6]', '$line[7]', '$line[8]', '$line[9]', '$line[10]', '$line[11]', '$line[12]', '$line[13]', '$line[14]')";
 						$wpdb->query($sql);
 					}
 					$status = 'succ';
 					break;
 				case 'victimas.csv':
 					while(($line = fgetcsv($csvFile)) !== FALSE){
-						$sql = "INSERT INTO victimas (cuenta, departamento, municipio, anyo, mes, mes_num, dia, dia_num, hora, rangohora, tipoarma, delito, area, sexo, edad, grupoedad, pertenecepandilla, pandilla) VALUES ($line[0], '$line[1]', '$line[2]', $line[3], '$line[4]', $line[5], '$line[6]', $line[7], '$line[8]', '$line[9]', '$line[10]', '$line[11]', '$line[12]', '$line[13]', $line[14], '$line[15]', '$line[16]', '$line[17]')";
+						$sql = "INSERT INTO victimas (cuenta, departamento, municipio, anyo, mes, mes_num, dia, dia_num, hora, rangohora, tipoarma, delito, area, sexo, edad, grupoedad, pertenecepandilla, pandilla) VALUES ($line[0], '$line[1]', '$line[2]', $line[3], '$line[4]', $line[5], '$line[6]', $line[7], '$line[8]', '$line[9]', '$line[10]', '$line[11]', '$line[12]', '$line[13]', '$line[14]', '$line[15]', '$line[16]', '$line[17]')";
 						$wpdb->query($sql);
 					}
 					$status = 'succ';
