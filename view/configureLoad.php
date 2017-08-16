@@ -2,6 +2,7 @@
 global $wpdb;
 
 $status = false;
+$total = 0;
 
 if(isset($_POST['importSubmit'])){
     $csvMimes = array('text/x-comma-separated-values', 'text/comma-separated-values', 'application/octet-stream', 'application/vnd.ms-excel', 'application/x-csv', 'text/x-csv', 'text/csv', 'application/csv', 'application/excel', 'application/vnd.msexcel', 'text/plain');
@@ -14,6 +15,7 @@ if(isset($_POST['importSubmit'])){
 					while(($line = fgetcsv($csvFile)) !== FALSE){
 						$sql = "INSERT INTO accidentes (cuenta, departamento, municipio, anyo, mes, mes_num, dia, dia_num, hora, rangohora, tipoaccidente, tipovehiculo, danyos, causa) VALUES ($line[0], '$line[1]', '$line[2]', $line[3], '$line[4]', $line[5], '$line[6]', $line[7], '$line[8]', '$line[9]', '$line[10]', '$line[11]', '$line[12]', '$line[13]')";
 						$wpdb->query($sql);
+						$total+=1;
 					}
 					$status = 'succ';
 					break;
@@ -21,12 +23,13 @@ if(isset($_POST['importSubmit'])){
 					while(($line = fgetcsv($csvFile)) !== FALSE){
 						$sql = "INSERT INTO delitos (cuenta, departamento, municipio, anyo, mes, mes_num, dia, dia_num, hora, rangohora, arma, delito, area) VALUES ($line[0], '$line[1]', '$line[2]', $line[3], '$line[4]', $line[5], '$line[6]', $line[7], '$line[8]', '$line[9]', '$line[10]', '$line[11]', '$line[12]')";
 						$wpdb->query($sql);
+						$total+=1;
 					}
 					$status = 'succ';
 					break;
 				case 'delitossexuales.csv':
 					while(($line = fgetcsv($csvFile)) !== FALSE){
-						$sql = "INSERT INTO delitossexuales (cuenta, departamento, municipio, anyo, mes, mes_num, dia, dia_num, hora, rangohora, arma, delito, area, sexo, edad, rangoedad) VALUES ($line[0], '$line[1]', '$line[2]', $line[3], '$line[4]', $line[5], '$line[6]', $line[7], '$line[8]', '$line[9]', '$line[10]', '$line[11]', '$line[12]', '$line[13]', $line[14], '$line[15]')";
+						$sql = "INSERT INTO delitossexuales (cuenta, departamento, municipio, anyo, mes, mes_num, dia, dia_num, hora, rangohora, arma, delito, area, sexo, edad, rangoedad) VALUES ($line[0], '$line[1]', '$line[2]', $line[3], '$line[4]', $line[5], '$line[6]', $line[7], '$line[8]', '$line[9]', '$line[10]', '$line[11]', '$line[12]', '$line[13]', '$line[14]', '$line[15]')";
 						$wpdb->query($sql);
 					}
 					$status = 'succ';
@@ -35,6 +38,7 @@ if(isset($_POST['importSubmit'])){
 					while(($line = fgetcsv($csvFile)) !== FALSE){
 						$sql = "INSERT INTO detenidos (cuenta, departamento, municipio, anyo, mes, mes_num, hora, rangohora, grupo_delito, delito, estructuracriminal, tipodetencion, sexo, edad, grupoedad) VALUES ($line[0], '$line[1]', '$line[2]', $line[3], '$line[4]', $line[5], '$line[6]', '$line[7]', '$line[8]', '$line[9]', '$line[10]', '$line[11]', '$line[12]', '$line[13]', '$line[14]')";
 						$wpdb->query($sql);
+						$total+=1;
 					}
 					$status = 'succ';
 					break;
@@ -42,6 +46,7 @@ if(isset($_POST['importSubmit'])){
 					while(($line = fgetcsv($csvFile)) !== FALSE){
 						$sql = "INSERT INTO victimas (cuenta, departamento, municipio, anyo, mes, mes_num, dia, dia_num, hora, rangohora, tipoarma, delito, area, sexo, edad, grupoedad, pertenecepandilla, pandilla) VALUES ($line[0], '$line[1]', '$line[2]', $line[3], '$line[4]', $line[5], '$line[6]', $line[7], '$line[8]', '$line[9]', '$line[10]', '$line[11]', '$line[12]', '$line[13]', '$line[14]', '$line[15]', '$line[16]', '$line[17]')";
 						$wpdb->query($sql);
+						$total+=1;
 					}
 					$status = 'succ';
 					break;
@@ -67,7 +72,7 @@ if(!empty($status)){
     switch($status){
         case 'succ':
             $statusMsgClass = 'alert-success';
-            $statusMsg = 'Datos actualizados.';
+            $statusMsg = 'Datos actualizados. '."[ $total ]";
             break;
         case 'err':
             $statusMsgClass = 'alert-danger';
